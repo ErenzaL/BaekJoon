@@ -1,7 +1,10 @@
-arr = [False]*30
+students = list(range(1,31))
+handed = []
 for i in range(28):
-    n = int(input())
-    arr[n-1] = True
-for i in range(len(arr)):
-    if not arr[i]:
-        print(i+1)
+    a = int(input())
+    handed.append(a)
+
+not_handed = [s for s in students if s not in handed]
+
+for s in not_handed:
+    print(s)
