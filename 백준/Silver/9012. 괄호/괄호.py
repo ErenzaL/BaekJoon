@@ -1,18 +1,15 @@
+#9012
 t = int(input())
-results = []  
-
 for _ in range(t):
     s = input().strip().replace(" ", "")
-    bal = 0
+    stack = []
     ok = True
     for ch in s:
         if ch == '(':
-            bal += 1
-        else:
-            bal -= 1
-        if bal < 0:
-            ok = False
-            break
-    results.append("YES" if ok and bal == 0 else "NO")
-
-print("\n".join(results))
+            stack.append(ch)
+        else:  # ')'
+            if not stack:
+                ok = False
+                break
+            stack.pop()
+    print("YES" if ok and not stack else "NO")
